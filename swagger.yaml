@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Rotten tomatoes
-  description: Endpoints
+  description: My Application
   version: '1.0'
 paths:
   /login:
@@ -68,6 +68,7 @@ paths:
       tags:
         - User
       summary: Get user
+      description: Trae al usuario que definido por el token JWT del header
       operationId: getUser
       parameters:
         - name: Authorization
@@ -94,6 +95,7 @@ paths:
       tags:
         - User
       summary: Get user with id
+      description: Trae al usuario con el id pasado en el parametro
       operationId: getUserWithId
       parameters:
         - name: id
@@ -121,6 +123,7 @@ paths:
       tags:
         - Content
       summary: Get content latest
+      description: Se traen las ultimas 10 películas agregadas
       operationId: getContentLatest
       responses:
         '200':
@@ -135,6 +138,7 @@ paths:
       tags:
         - Content
       summary: Get content top
+      description: Se traen las 10 películas con mayor puntuacion segun las review cargadas del sistema
       operationId: getContentTop
       responses:
         '200':
@@ -149,6 +153,7 @@ paths:
       tags:
         - Content
       summary: Get content with id
+      description: Trae el contenido con el id pasado en el parametro
       operationId: getContentWithId
       parameters:
         - name: id
@@ -175,6 +180,7 @@ paths:
       tags:
         - Review
       summary: Post content with id
+      description: Agrega una review al usuario, definido por el token, a la pelicula definida por el parametro de la url
       operationId: postContentWithId
       parameters:
         - name: id
@@ -211,6 +217,7 @@ paths:
       tags:
         - Categories
       summary: Get categories
+      description: Trae todas las categorias cargadas en el sistema
       operationId: getCategories
       responses:
         '200':
@@ -223,8 +230,9 @@ paths:
   /categories/{id}:
     get:
       tags:
-        - Content
+        - Categories
       summary: Get categories with id
+      description: Trae todas las peliculas que tengan la categoria (la categoria esta definida por el id del parametro)
       operationId: getCategoriesWithId
       parameters:
         - name: id
